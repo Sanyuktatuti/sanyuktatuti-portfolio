@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    unoptimized: true, // Disable image optimization globally
+    unoptimized: true,
     domains: ['raw.githubusercontent.com', 'github.com'],
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
@@ -16,8 +16,11 @@ const nextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
   },
-  // Enable static exports for Netlify
-  output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
+  // Static export configuration
+  output: 'export',
+  // Disable server-side features when exporting
+  trailingSlash: true,
+  distDir: 'out',
 };
 
 export default nextConfig;
