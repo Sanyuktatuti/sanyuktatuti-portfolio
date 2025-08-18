@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import FloatingIcons from "./FloatingIcons";
 import Hero from "./Hero";
