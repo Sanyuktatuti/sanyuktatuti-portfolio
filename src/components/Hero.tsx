@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import { personalInfo } from "@/constants";
 
 const Hero = () => {
   return (
@@ -18,7 +18,7 @@ const Hero = () => {
         <div className="relative w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden ring-4 ring-purple-500">
           <Image
             src="/profile.jpg"
-            alt="Aditya Chaudhary"
+            alt={personalInfo.name}
             fill
             className="object-cover"
             priority
@@ -31,7 +31,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-4xl md:text-6xl font-bold mb-4"
         >
-          Aditya Chaudhary
+          {personalInfo.name}
         </motion.h1>
 
         <motion.h2
@@ -40,7 +40,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-xl md:text-2xl text-gray-300 mb-8"
         >
-          Software Engineer & MS Computer Science @ USC
+          {personalInfo.title}
         </motion.h2>
 
         <motion.div
@@ -49,15 +49,20 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="flex gap-4 justify-center mb-8"
         >
-          <div className="bg-purple-600 text-white px-4 py-2 rounded-md">
-            Software Engineer
-          </div>
-          <div className="bg-blue-600 text-white px-4 py-2 rounded-md">
-            Tech Enthusiast
-          </div>
-          <div className="bg-pink-600 text-white px-4 py-2 rounded-md">
-            Problem Solver
-          </div>
+          {personalInfo.roles.map((role, index) => (
+            <div
+              key={role}
+              className={`${
+                index === 0
+                  ? "bg-purple-600"
+                  : index === 1
+                  ? "bg-blue-600"
+                  : "bg-pink-600"
+              } text-white px-4 py-2 rounded-md`}
+            >
+              {role}
+            </div>
+          ))}
         </motion.div>
 
         <motion.div
@@ -67,7 +72,7 @@ const Hero = () => {
           className="flex gap-6 justify-center"
         >
           <Link
-            href="https://github.com/adityac"
+            href={personalInfo.socialLinks.github}
             target="_blank"
             rel="noopener noreferrer"
             className="text-3xl hover:text-purple-500 transition-colors"
@@ -75,20 +80,12 @@ const Hero = () => {
             <FaGithub />
           </Link>
           <Link
-            href="https://linkedin.com/in/adityac"
+            href={personalInfo.socialLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="text-3xl hover:text-blue-500 transition-colors"
           >
             <FaLinkedin />
-          </Link>
-          <Link
-            href="https://leetcode.com/adityac"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-3xl hover:text-yellow-500 transition-colors"
-          >
-            <SiLeetcode />
           </Link>
         </motion.div>
       </motion.div>

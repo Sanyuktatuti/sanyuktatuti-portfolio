@@ -5,7 +5,7 @@ import {
   SiScikitlearn,
   SiOpencv,
   SiMongodb,
-  SiAmazonaws,
+  SiAmazonwebservices,
   SiDocker,
   SiKeras,
   SiJupyter,
@@ -43,6 +43,6 @@ export const techIcons: TechIcon[] = [
   { name: "numpy", icon: SiNumpy, color: "#013243" },
   { name: "pandas", icon: SiPandas, color: "#150458" },
   { name: "mongodb", icon: SiMongodb, color: "#47A248" },
-  { name: "aws", icon: SiAmazonaws, color: "#FF9900" },
+  { name: "aws", icon: SiAmazonwebservices, color: "#FF9900" },
   { name: "docker", icon: SiDocker, color: "#2496ED" },
 ];

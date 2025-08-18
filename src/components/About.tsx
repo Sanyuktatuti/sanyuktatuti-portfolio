@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { personalInfo } from "@/constants";
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -56,24 +57,24 @@ const About = () => {
             <p className="text-lg">
               I'm a passionate technologist bridging the gap between industry
               experience and academic excellence. Currently pursuing my Master's
-              in Computer Science at USC while leveraging my professional
+              in Computer Science at NYU while leveraging my professional
               software engineering background.
             </p>
 
             <p className="text-lg">
-              My expertise spans full-stack development, algorithms, and machine
-              learning & genAI. I thrive on solving complex problems and
-              building scalable solutions that drive real-world impact.
+              My expertise spans machine learning, deep learning, and AI
+              engineering. I thrive on solving complex problems and building
+              scalable solutions that drive real-world impact.
             </p>
 
             <div className="mt-8">
               <h3 className="text-xl font-semibold mb-4">Current Focus</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
-                  "Algorithms",
-                  "GenAI & LLMs",
-                  "Software Engineering",
-                  "Innovation & New Technologies",
+                  "Machine Learning",
+                  "Deep Learning",
+                  "Computer Vision",
+                  "Natural Language Processing",
                 ].map((focus, index) => (
                   <motion.div
                     key={index}
@@ -95,7 +96,7 @@ const About = () => {
                     Master of Science in Computer Science
                   </h4>
                   <p className="text-gray-400">
-                    University of Southern California (2023 - 2025)
+                    New York University (2023 - 2025)
                   </p>
                   <p className="text-sm text-gray-400">GPA: 3.78/4.0</p>
                 </div>

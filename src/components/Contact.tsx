@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
+import { personalInfo } from "@/constants";
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -172,7 +173,7 @@ const Contact = () => {
                 other's journey.
               </p>
               <Link
-                href="https://linkedin.com/in/adityac"
+                href={personalInfo.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 text-blue-500 hover:text-blue-400 transition-colors"

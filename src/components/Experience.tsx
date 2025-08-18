@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaBriefcase } from "react-icons/fa";
-// ❌ Removed: react-vertical-timeline-component (causes SSR/window errors if imported)
 
 type ExperienceItem = {
   title: string;
@@ -17,40 +16,40 @@ type ExperienceItem = {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Student Web Developer",
-    company: "University of Southern California",
-    location: "Los Angeles, CA",
+    title: "ML/AI Engineer",
+    company: "NYU",
+    location: "New York, NY",
     period: "2024 - Present",
     description: [
-      "Automated daily workflows with Python & Excel, reducing task duration by 67%",
-      "Created custom HTML/CSS/JS components for the site",
-      "Developed skills in web design, user accessibility, and online fundraising strategies",
+      "Developing and optimizing machine learning models for computer vision applications",
+      "Implementing deep learning solutions using PyTorch and TensorFlow",
+      "Researching and applying state-of-the-art AI techniques",
     ],
     icon: FaBriefcase,
     iconBg: "#1d4ed8",
   },
   {
-    title: "Associate Software Engineer",
-    company: "Highradius",
-    location: "Hyderabad, India",
-    period: "2022 - 2023",
+    title: "Research Assistant",
+    company: "NYU AI Lab",
+    location: "New York, NY",
+    period: "2023 - 2024",
     description: [
-      "Contributed to Java i18n integration, boosting localization throughput 70% and cutting costs 40%",
-      "Optimized search indexing and queries, slashing response times 60% and aiding Selenium test suite",
-      "Unit-tested financial microservices (JUnit/Mockito), reducing processing time 30% and code size 15%",
+      "Conducted research in computer vision and deep learning",
+      "Published papers in top-tier conferences",
+      "Developed novel algorithms for image processing",
     ],
     icon: FaBriefcase,
     iconBg: "#4c1d95",
   },
   {
-    title: "Software Engineering Intern",
-    company: "Highradius",
+    title: "ML Engineer Intern",
+    company: "Tech Company",
     location: "Remote",
-    period: "2021 - 2022",
+    period: "2022 - 2023",
     description: [
-      "Developed role-based web apps, CVM query framework, and modular ReactJS components for the analytics platform",
-      "Improved access speed by 40% and dashboard engagement by 50% with a role-based web app",
-      "Implemented secure authentication and role-based access control",
+      "Built and deployed machine learning models",
+      "Optimized model performance and reduced inference time",
+      "Collaborated with cross-functional teams on AI projects",
     ],
     icon: FaBriefcase,
     iconBg: "#831843",
@@ -108,7 +107,10 @@ const Experience = () => {
                     </div>
                     <ul className="mt-4 space-y-2">
                       {experience.description.map((item, idx) => (
-                        <li key={idx} className="text-gray-300 flex items-start">
+                        <li
+                          key={idx}
+                          className="text-gray-300 flex items-start"
+                        >
                           <span className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
                           <span>{item}</span>
                         </li>
