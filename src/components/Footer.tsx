@@ -1,6 +1,8 @@
-import Link from 'next/link';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { SiLeetcode } from 'react-icons/si';
+"use client";
+
+import Link from "next/link";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 const Footer = () => {
   return (
@@ -36,7 +38,9 @@ const Footer = () => {
 
           <div className="text-center md:text-right">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Aditya Chaudhary • USC '25 • VibeCoder • 300+ Leetcode Problems Solved • BruteForce++ → log(Optimized)
+              © {new Date().getFullYear()} Aditya Chaudhary • USC '25 •
+              VibeCoder • 300+ Leetcode Problems Solved • BruteForce++ →
+              log(Optimized)
             </p>
           </div>
         </div>

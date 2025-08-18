@@ -1,12 +1,21 @@
 "use client";
 
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
-import { FaBriefcase, FaGraduationCap } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { FaBriefcase } from "react-icons/fa";
+// ❌ Removed: react-vertical-timeline-component (causes SSR/window errors if imported)
 
-const experiences = [
+type ExperienceItem = {
+  title: string;
+  company: string;
+  location: string;
+  period: string;
+  description: string[];
+  icon: React.ComponentType<{ className?: string }>;
+  iconBg: string;
+};
+
+const experiences: ExperienceItem[] = [
   {
     title: "Student Web Developer",
     company: "University of Southern California",
@@ -15,10 +24,10 @@ const experiences = [
     description: [
       "Automated daily workflows with Python & Excel, reducing task duration by 67%",
       "Created custom HTML/CSS/JS components for the site",
-      "Developed skills in web design, user accessibility, and online fundraising strategies"
+      "Developed skills in web design, user accessibility, and online fundraising strategies",
     ],
-    icon: <FaBriefcase />,
-    iconBg: "#1d4ed8"
+    icon: FaBriefcase,
+    iconBg: "#1d4ed8",
   },
   {
     title: "Associate Software Engineer",
@@ -28,10 +37,10 @@ const experiences = [
     description: [
       "Contributed to Java i18n integration, boosting localization throughput 70% and cutting costs 40%",
       "Optimized search indexing and queries, slashing response times 60% and aiding Selenium test suite",
-      "Unit-tested financial microservices (JUnit/Mockito), reducing processing time 30% and code size 15%"
+      "Unit-tested financial microservices (JUnit/Mockito), reducing processing time 30% and code size 15%",
     ],
-    icon: <FaBriefcase />,
-    iconBg: "#4c1d95"
+    icon: FaBriefcase,
+    iconBg: "#4c1d95",
   },
   {
     title: "Software Engineering Intern",
@@ -41,11 +50,11 @@ const experiences = [
     description: [
       "Developed role-based web apps, CVM query framework, and modular ReactJS components for the analytics platform",
       "Improved access speed by 40% and dashboard engagement by 50% with a role-based web app",
-      "Implemented secure authentication and role-based access control"
+      "Implemented secure authentication and role-based access control",
     ],
-    icon: <FaBriefcase />,
-    iconBg: "#831843"
-  }
+    icon: FaBriefcase,
+    iconBg: "#831843",
+  },
 ];
 
 const Experience = () => {
@@ -67,39 +76,50 @@ const Experience = () => {
           Work Experience
         </h2>
 
-        <VerticalTimeline>
-          {experiences.map((experience, index) => (
-            <VerticalTimelineElement
-              key={index}
-              className="vertical-timeline-element--work"
-              contentStyle={{
-                background: "#1a1a2e",
-                color: "#fff",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-              }}
-              contentArrowStyle={{ borderRight: "7px solid #1a1a2e" }}
-              date={experience.period}
-              iconStyle={{ background: experience.iconBg, color: "#fff" }}
-              icon={experience.icon}
-            >
-              <h3 className="vertical-timeline-element-title font-bold text-xl">
-                {experience.title}
-              </h3>
-              <h4 className="vertical-timeline-element-subtitle text-purple-400 mt-2">
-                {experience.company}
-              </h4>
-              <p className="text-gray-400 text-sm mt-1">{experience.location}</p>
-              <ul className="mt-4 space-y-2">
-                {experience.description.map((item, idx) => (
-                  <li key={idx} className="text-gray-300 flex items-start">
-                    <span className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </VerticalTimelineElement>
-          ))}
-        </VerticalTimeline>
+        <div className="space-y-12">
+          {experiences.map((experience) => {
+            const Icon = experience.icon;
+            const key = `${experience.company}-${experience.title}-${experience.period}`;
+            return (
+              <motion.div
+                key={key}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.5 }}
+                className="bg-[#1a1a2e] rounded-lg p-6 md:p-8 shadow-xl"
+              >
+                <div className="flex items-start gap-4">
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-white"
+                    style={{ backgroundColor: experience.iconBg }}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold">{experience.title}</h3>
+                    <p className="text-purple-400 mt-1">{experience.company}</p>
+                    <div className="flex justify-between items-center mt-2">
+                      <span className="text-gray-400 text-sm">
+                        {experience.location}
+                      </span>
+                      <span className="text-gray-400 text-sm">
+                        {experience.period}
+                      </span>
+                    </div>
+                    <ul className="mt-4 space-y-2">
+                      {experience.description.map((item, idx) => (
+                        <li key={idx} className="text-gray-300 flex items-start">
+                          <span className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </motion.div>
     </div>
   );

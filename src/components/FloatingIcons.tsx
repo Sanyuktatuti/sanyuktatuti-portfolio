@@ -1,15 +1,30 @@
 "use client";
 
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const FloatingIcons = () => {
-  const [icons, setIcons] = useState<{ id: number; x: number; y: number; rotation: number; scale: number; }[]>([]);
+  const [icons, setIcons] = useState<
+    {
+      id: number;
+      x: number;
+      y: number;
+      rotation: number;
+      scale: number;
+      icon: string;
+    }[]
+  >([]);
 
   useEffect(() => {
     const techIcons = [
-      'python.svg', 'react.svg', 'typescript.svg', 'nodejs.svg',
-      'aws.svg', 'docker.svg', 'mongodb.svg', 'firebase.svg'
+      "python.svg",
+      "react.svg",
+      "typescript.svg",
+      "nodejs.svg",
+      "aws.svg",
+      "docker.svg",
+      "mongodb.svg",
+      "firebase.svg",
     ];
 
     const newIcons = Array.from({ length: 20 }, (_, i) => ({
@@ -18,7 +33,7 @@ const FloatingIcons = () => {
       y: Math.random() * 100,
       rotation: Math.random() * 360,
       scale: 0.5 + Math.random() * 0.5,
-      icon: techIcons[i % techIcons.length]
+      icon: techIcons[i % techIcons.length],
     }));
 
     setIcons(newIcons);

@@ -10,6 +10,7 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  transpilePackages: ['react-vertical-timeline-component'],
   experimental: {
     optimizeCss: true,
     scrollRestoration: true,
