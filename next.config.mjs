@@ -6,6 +6,7 @@ const nextConfig = {
     domains: ['raw.githubusercontent.com', 'github.com'],
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
+    unoptimized: process.env.NETLIFY === 'true', // Disable image optimization on Netlify
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
@@ -15,6 +16,8 @@ const nextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
   },
+  // Enable static exports for Netlify
+  output: 'export',
 };
 
 export default nextConfig;
