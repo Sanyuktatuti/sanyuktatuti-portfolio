@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1",
+      "headers": {
+        "x-frame-options": "DENY",
+        "x-content-type-options": "nosniff",
+        "x-xss-protection": "1; mode=block",
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    }
+  ],
+  "images": {
+    "sizes": [640, 750, 828, 1080, 1200],
+    "domains": ["localhost"],
+    "minimumCacheTTL": 60
+  }
+}
