@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
