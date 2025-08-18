@@ -9,29 +9,32 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Aditya Chaudhary | Software Engineer & MS CS Student",
+  title: "Sanyukta Tuti | ML/AI Engineer & MS CS Student",
   description:
-    "Software Engineer & MS CS Student at USC with expertise in full-stack development, algorithms, and machine learning & genAI",
+    "ML/AI Engineer & MS CS Student at NYU with expertise in deep learning, natural language processing, computer vision, data science, and generative AI.",
   keywords: [
-    "Software Engineer",
-    "Full Stack Developer",
-    "USC",
+    "Sanyukta Tuti",
     "Machine Learning",
-    "AI",
-    "React",
-    "Node.js",
+    "Deep Learning",
+    "Natural Language Processing",
+    "Computer Vision",
+    "Generative AI",
+    "NYU",
     "Python",
+    "PyTorch",
+    "TensorFlow",
+    "Langchain/LangGraph",
   ],
-  authors: [{ name: "Aditya Chaudhary" }],
-  creator: "Aditya Chaudhary",
+  authors: [{ name: "Sanyukta Tuti" }],
+  creator: "Sanyukta Tuti",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://adityac.com",
-    title: "Aditya Chaudhary | Software Engineer & MS CS Student",
+    url: "https://sanyuktatuti.com", // replace with your custom domain or vercel URL
+    title: "Sanyukta Tuti | ML/AI Engineer & MS CS Student",
     description:
-      "Software Engineer & MS CS Student at USC with expertise in full-stack development, algorithms, and machine learning & genAI",
-    siteName: "Aditya Chaudhary Portfolio",
+      "Portfolio of Sanyukta Tuti — ML/AI Engineer & MS CS Student at NYU specializing in deep learning, CV, NLP, and data science.",
+    siteName: "Sanyukta Tuti Portfolio",
   },
 };
 

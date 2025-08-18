@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaBriefcase } from "react-icons/fa";
+import type { IconType } from "react-icons"; // ✅ type import
 
 type ExperienceItem = {
   title: string;
@@ -10,57 +11,66 @@ type ExperienceItem = {
   location: string;
   period: string;
   description: string[];
-  icon: React.ComponentType<{ className?: string }>;
+  icon: IconType;           // ✅ simpler & safe with react-icons
   iconBg: string;
 };
 
 const experiences: ExperienceItem[] = [
   {
-    title: "ML/AI Engineer",
-    company: "NYU",
-    location: "New York, NY",
-    period: "2024 - Present",
+    title: "Researcher — Self-Drive (VIP)",
+    company: "NYU Tandon School of Engineering",
+    location: "Brooklyn, NY",
+    period: "Jan 2025 – Present",
     description: [
-      "Developing and optimizing machine learning models for computer vision applications",
-      "Implementing deep learning solutions using PyTorch and TensorFlow",
-      "Researching and applying state-of-the-art AI techniques",
+      "Engineered a ROS Noetic-based autonomous navigation stack on TurtleBot3; fine-tuned YOLOv8 with 300+ annotated images.",
+      "Implemented ViT-DINO + VLAD retrieval across ~10k frames for target re-ID; integrated A* on a waypoint graph.",
+      "Achieved ~25% faster navigation with 100% collision-free runs; 1st place (Final, 10+ teams) and runner-up (Early Bird).",
     ],
     icon: FaBriefcase,
     iconBg: "#1d4ed8",
   },
   {
-    title: "Research Assistant",
-    company: "NYU AI Lab",
-    location: "New York, NY",
-    period: "2023 - 2024",
+    title: "Software Engineer — Machine Learning",
+    company: "Cisco (Customer Experience, CX)",
+    location: "Bengaluru, IN (Remote)",
+    period: "Aug 2022 – Aug 2024",
     description: [
-      "Conducted research in computer vision and deep learning",
-      "Published papers in top-tier conferences",
-      "Developed novel algorithms for image processing",
+      "Productionized an RCA + ticket clustering pipeline (ServiceNow) using Sentence-Transformers, HDBSCAN, and XGBoost; ~3.2k tickets/day; reduced L2 escalations by ~31% over a 90-day A/B.",
+      "Built an LLM-powered network compliance assistant (GPT-4 with RAG & function calling): parsed CLI via pyATS (Genie), generated configs with Jinja2, validated with Batfish & OPA; ~30% fewer misconfigurations.",
+      "Led a team of 4 interns; designed modular Airflow DAGs with MLflow tracking and quality gates; improved training reliability and observability.",
+      "Developed predictive analytics for network telemetry (ARIMA/Prophet; DBSCAN/K-Means) with Kafka Streams + Spark ETL; stored in BigQuery & Elasticsearch.",
     ],
     icon: FaBriefcase,
     iconBg: "#4c1d95",
   },
   {
-    title: "ML Engineer Intern",
-    company: "Tech Company",
-    location: "Remote",
-    period: "2022 - 2023",
+    title: "Technical Undergraduate Intern",
+    company: "Cisco Systems Inc.",
+    location: "Bengaluru, IN",
+    period: "Feb 2022 – Jun 2022",
     description: [
-      "Built and deployed machine learning models",
-      "Optimized model performance and reduced inference time",
-      "Collaborated with cross-functional teams on AI projects",
+      "Built a web-based Case Escalation Tracker (Python/JS/MongoDB) used to manage 5,000+ customer support cases.",
+      "Earned Cisco DevNet Associate & CCNA; specialized in Software-Defined Access.",
     ],
     icon: FaBriefcase,
     iconBg: "#831843",
   },
+  {
+    title: "Machine Learning Intern",
+    company: "Verzeo (in collaboration with IIT Kharagpur)",
+    location: "Bhubaneswar, Odisha, IN",
+    period: "Jul 2020 – Dec 2020",
+    description: [
+      "Engineered a loan-default prediction model achieving 89.5% accuracy to forecast target outcomes.",
+      "Crafted interactive dashboards for 10+ departments, streamlining reporting and saving ~15 hours/week of manual data compilation.",
+    ],
+    icon: FaBriefcase,
+    iconBg: "#0f766e",
+  },
 ];
 
 const Experience = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <div className="container-padding py-16 md:py-24">
@@ -107,10 +117,7 @@ const Experience = () => {
                     </div>
                     <ul className="mt-4 space-y-2">
                       {experience.description.map((item, idx) => (
-                        <li
-                          key={idx}
-                          className="text-gray-300 flex items-start"
-                        >
+                        <li key={idx} className="text-gray-300 flex items-start">
                           <span className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
                           <span>{item}</span>
                         </li>

@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
 import FloatingIcons from "./FloatingIcons";
 import Hero from "./Hero";
 import About from "./About";
+import Education from "./Education";
 import Experience from "./Experience";
 import Skills from "./Skills";
 import Projects from "./Projects";
@@ -19,6 +20,9 @@ export default function ClientLayout() {
         </section>
         <section id="about" className="min-h-screen">
           <About />
+        </section>
+        <section id="education" className="min-h-screen">
+          <Education />
         </section>
         <section id="experience" className="min-h-screen">
           <Experience />

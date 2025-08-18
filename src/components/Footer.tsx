@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-4 mb-4 md:mb-0">
             <Link
-              href="https://github.com/adityac"
+              href="https://github.com/Sanyuktatuti"
               target="_blank"
               rel="noopener noreferrer"
               className="text-2xl hover:text-purple-500 transition-colors"
@@ -17,7 +17,7 @@ const Footer = () => {
               <FaGithub />
             </Link>
             <Link
-              href="https://linkedin.com/in/adityac"
+              href="https://www.linkedin.com/in/sanyukta-tuti-343ba5201/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-2xl hover:text-blue-500 transition-colors"
@@ -25,7 +25,7 @@ const Footer = () => {
               <FaLinkedin />
             </Link>
             <Link
-              href="https://leetcode.com/adityac"
+              href="https://leetcode.com/u/sanyuktatuti/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-2xl hover:text-yellow-500 transition-colors"
@@ -36,7 +36,7 @@ const Footer = () => {
 
           <div className="text-center md:text-right">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Aditya Chaudhary • USC '25 •
+              © {new Date().getFullYear()} Sanyukta Tuti • NYU '26 •
               VibeCoder • 300+ Leetcode Problems Solved • BruteForce++ →
               log(Optimized)
             </p>
