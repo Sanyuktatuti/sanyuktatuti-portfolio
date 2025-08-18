@@ -1,23 +1,24 @@
 "use client";
 
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
-import { FiArrowUp } from "react-icons/fi";
-import { motion, AnimatePresence } from "framer-motion";
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { scrollYProgress } = useScroll();
+
+  const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
+  const opacity = useSpring(scrollYProgress, springConfig);
+  const rotation = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  const springRotation = useSpring(rotation, springConfig);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+    const handleScroll = () => {
+      setIsVisible(window.scrollY > 400);
     };
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
@@ -28,19 +29,36 @@ const BackToTop = () => {
   };
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-purple-600 text-white shadow-lg hover:bg-purple-700 transition-colors z-50"
-        >
-          <FiArrowUp className="w-6 h-6" />
-        </motion.button>
-      )}
-    </AnimatePresence>
+    <motion.button
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isVisible ? 1 : 0 }}
+      transition={{ duration: 0.3 }}
+      onClick={scrollToTop}
+      className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-purple-500/20 backdrop-blur-sm border border-purple-500/30 hover:bg-purple-500/30 transition-colors duration-300"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+    >
+      <svg
+        className="w-6 h-6 text-purple-500"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        />
+      </svg>
+
+      <motion.div
+        className="absolute inset-0 rounded-full"
+        style={{
+          background: `conic-gradient(from 0deg at 50% 50%, rgba(139, 92, 246, 0.2) ${springRotation}deg, transparent 0deg)`,
+        }}
+      />
+    </motion.button>
   );
 };
 

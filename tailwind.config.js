@@ -7,16 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: "#050816",
-        secondary: "#aaa6c3",
-        tertiary: "#151030",
+      fontFamily: {
+        grotesk: ['var(--font-space-grotesk)', 'sans-serif'],
+        raleway: ['var(--font-raleway)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
       },
-      boxShadow: {
-        card: "0px 35px 120px -15px #211e35",
-      },
-      screens: {
-        xs: "450px",
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },

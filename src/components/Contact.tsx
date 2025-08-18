@@ -66,10 +66,9 @@ const Contact = () => {
           variants={itemVariants}
           className="text-center text-gray-300 mb-12"
         >
-          Eager to team up on groundbreaking projects or explore fresh
-          opportunities?
+          If you're building with purpose, complexity, and a bias to ship, I would love to connect!
           <br />
-          I'm always keen to collaborate with fellow developers and creators.
+          I'm always keen to collaborate with fellow researchers and creators.
         </motion.p>
 
         <div className="grid md:grid-cols-2 gap-12">
