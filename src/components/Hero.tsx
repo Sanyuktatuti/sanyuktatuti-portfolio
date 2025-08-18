@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { personalInfo } from "@/constants";
 
@@ -15,15 +15,21 @@ const Hero = () => {
         transition={{ duration: 0.5 }}
         className="text-center"
       >
-        <div className="relative w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden ring-4 ring-purple-500">
+        <motion.div
+          className="relative w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden ring-4 ring-purple-500"
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <Image
             src="/profile.jpg"
             alt={personalInfo.name}
             fill
-            className="object-cover"
             priority
+            sizes="128px"
+            className="object-cover"
           />
-        </div>
+        </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

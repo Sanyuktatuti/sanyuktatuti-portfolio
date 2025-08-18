@@ -99,7 +99,7 @@ const Skills = () => {
             <motion.section
               key={category}
               variants={itemVariants}
-              className="bg-[#121225] rounded-2xl p-6 shadow-[0_8px_30px_rgb(2,6,23,0.35)] ring-1 ring-white/5"
+              className="bg-[#121225] rounded-2xl p-6 shadow-[0_8px_30px_rgb(2,6,23,0.35)] ring-1 ring-white/5 card-hover backdrop-blur-sm"
             >
               <div className="mb-5 flex items-center justify-between">
                 <h3 className="text-lg font-semibold">{category}</h3>

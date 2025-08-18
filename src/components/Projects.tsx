@@ -126,7 +126,7 @@ const Projects = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-[#1a1a2e] rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/5 hover:shadow-2xl transform hover:scale-[1.02] transition-all duration-300"
+              className="bg-[#1a1a2e] rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/5 card-hover backdrop-blur-sm"
             >
               {/* Image or Fallback */}
               {project.image ? (

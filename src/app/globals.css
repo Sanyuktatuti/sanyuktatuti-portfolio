@@ -155,9 +155,75 @@ body {
   display: none;
 }
 
+/* Custom Cursor */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  background: rgba(139, 92, 246, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.2s ease;
+}
+
+.custom-cursor.hover {
+  transform: scale(1.5);
+  background: rgba(139, 92, 246, 0.3);
+  mix-blend-mode: difference;
+}
+
+/* Section Hover Effects */
+.section-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-hover:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.2);
+}
+
+/* Link Hover Effects */
+.link-hover {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #8b5cf6;
+  transition: width 0.3s ease;
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 
+    0 20px 40px -15px rgba(139, 92, 246, 0.2),
+    0 0 20px 0px rgba(139, 92, 246, 0.1);
+  filter: brightness(1.1);
+  background: rgba(26, 26, 46, 0.9);
+}
+
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  cursor: none;
 }

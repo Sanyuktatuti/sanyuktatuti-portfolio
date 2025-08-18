@@ -11,7 +11,7 @@ type ExperienceItem = {
   location: string;
   period: string;
   description: string[];
-  icon: IconType;           // ✅ simpler & safe with react-icons
+  icon: IconType; // ✅ simpler & safe with react-icons
   iconBg: string;
 };
 
@@ -95,7 +95,7 @@ const Experience = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5 }}
-                className="bg-[#1a1a2e] rounded-lg p-6 md:p-8 shadow-xl"
+                className="bg-[#1a1a2e] rounded-lg p-6 md:p-8 shadow-xl card-hover backdrop-blur-sm"
               >
                 <div className="flex items-start gap-4">
                   <div
@@ -117,7 +117,10 @@ const Experience = () => {
                     </div>
                     <ul className="mt-4 space-y-2">
                       {experience.description.map((item, idx) => (
-                        <li key={idx} className="text-gray-300 flex items-start">
+                        <li
+                          key={idx}
+                          className="text-gray-300 flex items-start"
+                        >
                           <span className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
                           <span>{item}</span>
                         </li>
