@@ -37,8 +37,7 @@ const Footer = () => {
           <div className="text-center md:text-right">
             <p className="text-gray-400 text-sm">
               © {new Date().getFullYear()} Sanyukta Tuti • NYU '26 •
-              VibeCoder • 300+ Leetcode Problems Solved • BruteForce++ →
-              log(Optimized)
+              VibeCoder • Building Intelligent Systems with ML & AI
             </p>
           </div>
         </div>

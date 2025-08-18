@@ -17,9 +17,9 @@ type ExperienceItem = {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Researcher — Self-Drive (VIP)",
+    title: "Artificial Intelligence Researcher — Self-Drive (VIP)",
     company: "NYU Tandon School of Engineering",
-    location: "Brooklyn, NY",
+    location: "New York, United States",
     period: "Jan 2025 – Present",
     description: [
       "Engineered a ROS Noetic-based autonomous navigation stack on TurtleBot3; fine-tuned YOLOv8 with 300+ annotated images.",
@@ -30,9 +30,9 @@ const experiences: ExperienceItem[] = [
     iconBg: "#1d4ed8",
   },
   {
-    title: "Software Engineer — Machine Learning",
-    company: "Cisco (Customer Experience, CX)",
-    location: "Bengaluru, IN (Remote)",
+    title: "Machine Learning Engineer (Customer Experience)",
+    company: "Cisco Systems Inc.",
+    location: "Bengaluru, IN",
     period: "Aug 2022 – Aug 2024",
     description: [
       "Productionized an RCA + ticket clustering pipeline (ServiceNow) using Sentence-Transformers, HDBSCAN, and XGBoost; ~3.2k tickets/day; reduced L2 escalations by ~31% over a 90-day A/B.",

@@ -17,25 +17,33 @@ const Education = () => {
       degree: "Master's in Computer Science",
       period: "2024 – 2026",
       gpa: "3.889",
-      courses: ["Deep Learning", "Machine Learning", "Big Data", "Principle Database Systems", "Data Analysis and Algorithms", "Information Visualization"]
+      courses: [
+        "Deep Learning",
+        "Machine Learning",
+        "Big Data",
+        "Principle Database Systems",
+        "Data Analysis and Algorithms",
+        "Information Visualization",
+      ],
     },
     {
       school: "Kalinga Institute Of Industrial Technology",
       location: "Bhubaneshwar, Odisha",
-      degree: "Bachelor of Technology (Honours) in Computer Science and Engineering",
+      degree:
+        "Bachelor of Technology (Honours) in Computer Science and Engineering",
       period: "2018 – 2022",
       gpa: "3.86",
     },
   ];
 
   return (
-    <div className="container-padding py-16 md:py-24 bg-[#0a0a1a]">
+    <div className="container-padding py-16 md:py-24">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 0.8 }}
-        className="max-w-4xl mx-auto"
+        className="max-w-6xl mx-auto"
       >
         <h2 className="text-4xl font-bold mb-16 text-center text-gradient">
           Education
@@ -56,7 +64,9 @@ const Education = () => {
                 </div>
                 <div className="flex-1">
                   <div className="flex justify-between items-start flex-wrap gap-2">
-                    <h3 className="text-xl font-bold text-white">{edu.school}</h3>
+                    <h3 className="text-xl font-bold text-white">
+                      {edu.school}
+                    </h3>
                     <span className="text-purple-400">{edu.period}</span>
                   </div>
                   <p className="text-gray-400 mt-1">{edu.location}</p>
@@ -64,7 +74,9 @@ const Education = () => {
                   <p className="text-gray-300 mt-1">GPA: {edu.gpa}</p>
                   {edu.courses && (
                     <div className="mt-4">
-                      <p className="text-gray-300 font-medium">Selected Coursework:</p>
+                      <p className="text-gray-300 font-medium">
+                        Selected Coursework:
+                      </p>
                       <div className="flex flex-wrap gap-2 mt-2">
                         {edu.courses.map((course) => (
                           <span

@@ -75,7 +75,11 @@ const Projects = () => {
 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, staggerChildren: 0.2 } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, staggerChildren: 0.2 },
+    },
   };
 
   const itemVariants = {
@@ -113,7 +117,8 @@ const Projects = () => {
           variants={itemVariants}
           className="text-center text-gray-300/90 mb-12 max-w-2xl mx-auto"
         >
-          A selection of ML/AI, LLM, and data systems I’ve built across research and industry.
+          A selection of ML/AI, LLM, and data systems I’ve built across research
+          and industry.
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -141,7 +146,9 @@ const Projects = () => {
 
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+                <p className="text-gray-300 text-sm mb-4">
+                  {project.description}
+                </p>
 
                 <div className="flex flex-wrap gap-2 mb-5">
                   {project.tags.map((tag, tagIndex) => (
