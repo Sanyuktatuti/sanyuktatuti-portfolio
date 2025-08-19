@@ -24,6 +24,47 @@ const InteractiveResumeViewer = ({ isOpen, onClose }: ResumeViewerProps) => {
 
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
+  // Scroll lock effect
+  useEffect(() => {
+    if (isOpen) {
+      // Store current scroll position
+      const scrollY = window.scrollY;
+      
+      // Lock body scroll
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.overflow = 'hidden';
+      
+      return () => {
+        // Restore body scroll
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.overflow = '';
+        
+        // Restore scroll position
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isOpen]);
+
+  // Handle ESC key to close modal
+  useEffect(() => {
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscapeKey);
+      return () => document.removeEventListener('keydown', handleEscapeKey);
+    }
+  }, [isOpen, onClose]);
+
   // Check if PDF exists and handle loading
   useEffect(() => {
     if (isOpen) {
@@ -62,11 +103,12 @@ const InteractiveResumeViewer = ({ isOpen, onClose }: ResumeViewerProps) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-lg flex items-center justify-center p-4"
+          className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-lg flex items-center justify-center p-4 overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
+          style={{ position: 'fixed' }}
         >
           {/* Resume Container */}
           <motion.div
@@ -145,7 +187,7 @@ const InteractiveResumeViewer = ({ isOpen, onClose }: ResumeViewerProps) => {
             </div>
 
             {/* Resume Content */}
-            <div className="relative h-full overflow-hidden">
+            <div className="relative h-full overflow-auto">
               {isLoading ? (
                 /* Loading State */
                 <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
@@ -216,13 +258,18 @@ const InteractiveResumeViewer = ({ isOpen, onClose }: ResumeViewerProps) => {
                           style={{
                             borderColor: sections.find(s => s.id === activeSection)?.color,
                             backgroundColor: `${sections.find(s => s.id === activeSection)?.color}10`,
-                            top: activeSection === 'contact' ? '10%' : 
-                                 activeSection === 'experience' ? '25%' :
-                                 activeSection === 'education' ? '45%' :
-                                 activeSection === 'skills' ? '65%' : '80%',
+                            top: activeSection === 'contact' ? '6%' : 
+                                 activeSection === 'education' ? '18%' :
+                                 activeSection === 'skills' ? '28%' :
+                                 activeSection === 'experience' ? '38%' :
+                                 activeSection === 'projects' ? '72%' : '6%',
                             left: '5%',
                             right: '5%',
-                            height: '15%',
+                            height: activeSection === 'contact' ? '8%' :
+                                    activeSection === 'education' ? '8%' :
+                                    activeSection === 'skills' ? '8%' :
+                                    activeSection === 'experience' ? '32%' : 
+                                    activeSection === 'projects' ? '20%' : '8%',
                           }}
                           animate={{
                             scale: [1, 1.02, 1],
