@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { BiLinkExternal } from "react-icons/bi";
+import Enhanced3DCard from "./Enhanced3DCard";
 
 // TIP: If you later want to use GitHub OpenGraph preview images, add
 // images.domains = ["opengraph.githubassets.com"] to next.config.js
@@ -123,68 +124,70 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="bg-[#1a1a2e] rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/5 card-hover backdrop-blur-sm"
-            >
-              {/* Image or Fallback */}
-              {project.image ? (
-                <div className="relative h-48">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover"
-                    priority={index < 2}
-                  />
+            <motion.div key={index} variants={itemVariants}>
+              <Enhanced3DCard className="h-full">
+                <div className="bg-gradient-to-br from-[#1a1a2e] to-[#16213e] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 backdrop-blur-sm h-full transition-all duration-300 hover:ring-purple-500/30">
+                  {/* Image or Fallback */}
+                  {project.image ? (
+                    <div className="relative h-48">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover"
+                        priority={index < 2}
+                      />
+                    </div>
+                  ) : (
+                    <FallbackBanner title={project.title} />
+                  )}
+
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-300 text-sm mb-4">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-5">
+                      {project.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="text-xs px-2 py-1 rounded-md bg-white/10 text-white/80"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <Link
+                        href={project.links.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm hover:text-purple-400 transition-colors"
+                        aria-label={`${project.title} GitHub repository`}
+                      >
+                        <FaGithub className="text-xl" />
+                        <span>Code</span>
+                      </Link>
+
+                      <Link
+                        href={project.links.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm hover:text-blue-400 transition-colors"
+                        aria-label={`${project.title} live demo or docs`}
+                      >
+                        <BiLinkExternal className="text-xl" />
+                        <span>Demo</span>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              ) : (
-                <FallbackBanner title={project.title} />
-              )}
-
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-300 text-sm mb-4">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="text-xs px-2 py-1 rounded-md bg-white/10 text-white/80"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <Link
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm hover:text-purple-400 transition-colors"
-                    aria-label={`${project.title} GitHub repository`}
-                  >
-                    <FaGithub className="text-xl" />
-                    <span>Code</span>
-                  </Link>
-
-                  <Link
-                    href={project.links.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm hover:text-blue-400 transition-colors"
-                    aria-label={`${project.title} live demo or docs`}
-                  >
-                    <BiLinkExternal className="text-xl" />
-                    <span>Demo</span>
-                  </Link>
-                </div>
-              </div>
+              </Enhanced3DCard>
             </motion.div>
           ))}
         </div>

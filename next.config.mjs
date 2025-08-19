@@ -16,11 +16,12 @@ const nextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
   },
-  // Static export configuration
-  output: 'export',
-  // Disable server-side features when exporting
-  trailingSlash: true,
-  distDir: 'out',
+  // Only use static export for production builds
+  ...(process.env.NODE_ENV === 'production' && {
+    output: 'export',
+    trailingSlash: true,
+    distDir: 'out',
+  }),
 };
 
 export default nextConfig;

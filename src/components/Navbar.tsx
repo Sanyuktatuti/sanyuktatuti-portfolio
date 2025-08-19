@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FiDownload } from "react-icons/fi";
 import { motion } from "framer-motion";
+import ViewCounter from "./ViewCounter";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -100,6 +102,14 @@ const Navbar = () => {
                 </Link>
               ))}
             </nav>
+
+            {/* View Counter */}
+            <div className="hidden md:block">
+              <ViewCounter
+                variant="minimal"
+                className="opacity-70 hover:opacity-100 transition-opacity"
+              />
+            </div>
 
             <a
               href="/resume.pdf"

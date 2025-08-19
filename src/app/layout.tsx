@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Raleway, Inter } from "next/font/google";
 import "./globals.css";
 import "react-vertical-timeline-component/style.min.css";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -61,9 +62,11 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${raleway.variable} ${inter.variable} font-sans`}
       >
-        <main className="relative min-h-screen bg-[#030014] overflow-hidden">
-          {children}
-        </main>
+        <ThemeProvider>
+          <main className="relative min-h-screen bg-[#030014] overflow-hidden">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

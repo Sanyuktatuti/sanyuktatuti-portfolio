@@ -4,10 +4,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiKaggle, SiLeetcode } from "react-icons/si";
 import { personalInfo } from "@/constants";
 import MagneticButton from "./MagneticButton";
 import TextSpotlight from "./TextSpotlight";
 import ParallaxText from "./ParallaxText";
+import TypingAnimation from "./TypingAnimation";
 
 const Hero = () => {
   const { scrollYProgress } = useScroll();
@@ -52,21 +54,33 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 break-words leading-tight py-2"
+              style={{ lineHeight: '1.1' }}
             >
               {personalInfo.name}
             </motion.h1>
           </ParallaxText>
         </TextSpotlight>
 
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-xl md:text-2xl text-gray-300 mb-8"
         >
-          {personalInfo.title}
-        </motion.h2>
+          <TypingAnimation
+            texts={[
+              "ML/AI Engineer & MS Computer Science @ NYU",
+              "Deep Learning Expert",
+              "Building the Future with AI",
+              "Transforming Data into Intelligence"
+            ]}
+            className="min-h-[2rem] flex items-center justify-center"
+            typingSpeed={80}
+            deletingSpeed={40}
+            pauseDuration={2500}
+          />
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -95,14 +109,14 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="flex gap-6 justify-center"
+          className="flex gap-4 justify-center"
         >
           <MagneticButton>
             <Link
               href={personalInfo.socialLinks.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-3xl hover:text-purple-500 transition-colors p-4 bg-white/5 rounded-full backdrop-blur-sm hover:bg-white/10"
+              className="text-2xl hover:text-purple-500 transition-colors p-3 bg-white/5 rounded-full backdrop-blur-sm hover:bg-white/10 flex items-center justify-center w-12 h-12"
             >
               <FaGithub />
             </Link>
@@ -113,9 +127,31 @@ const Hero = () => {
               href={personalInfo.socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-3xl hover:text-blue-500 transition-colors p-4 bg-white/5 rounded-full backdrop-blur-sm hover:bg-white/10"
+              className="text-2xl hover:text-blue-500 transition-colors p-3 bg-white/5 rounded-full backdrop-blur-sm hover:bg-white/10 flex items-center justify-center w-12 h-12"
             >
               <FaLinkedin />
+            </Link>
+          </MagneticButton>
+
+          <MagneticButton>
+            <Link
+              href={personalInfo.socialLinks.kaggle}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl hover:text-cyan-400 transition-colors p-3 bg-white/5 rounded-full backdrop-blur-sm hover:bg-white/10 flex items-center justify-center w-12 h-12"
+            >
+              <SiKaggle />
+            </Link>
+          </MagneticButton>
+
+          <MagneticButton>
+            <Link
+              href={personalInfo.socialLinks.leetcode}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl hover:text-orange-400 transition-colors p-3 bg-white/5 rounded-full backdrop-blur-sm hover:bg-white/10 flex items-center justify-center w-12 h-12"
+            >
+              <SiLeetcode />
             </Link>
           </MagneticButton>
         </motion.div>

@@ -1,0 +1,8 @@
+Add your resume.pdf file here!
+
+Instructions:
+1. Save your resume as "resume.pdf"
+2. Place it in the public/ directory
+3. Delete this placeholder file
+
+Your navbar Resume button will then work perfectly!

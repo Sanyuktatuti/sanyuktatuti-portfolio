@@ -36,6 +36,8 @@ export const personalInfo = {
   socialLinks: {
     linkedin: "https://www.linkedin.com/in/sanyukta-tuti-343ba5201/",
     github: "https://github.com/Sanyuktatuti",
+    kaggle: "https://www.kaggle.com/sanyuktatuti",
+    leetcode: "https://leetcode.com/sanyuktatuti",
   },
 };
 

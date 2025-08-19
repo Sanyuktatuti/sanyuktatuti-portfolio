@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaBriefcase } from "react-icons/fa";
 import type { IconType } from "react-icons"; // ✅ type import
+import AnimatedTimeline from "./AnimatedTimeline";
 
 type ExperienceItem = {
   title: string;
@@ -85,52 +86,17 @@ const Experience = () => {
           Work Experience
         </h2>
 
-        <div className="space-y-12">
-          {experiences.map((experience) => {
-            const Icon = experience.icon;
-            const key = `${experience.company}-${experience.title}-${experience.period}`;
-            return (
-              <motion.div
-                key={key}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5 }}
-                className="bg-[#1a1a2e] rounded-lg p-6 md:p-8 shadow-xl card-hover backdrop-blur-sm"
-              >
-                <div className="flex items-start gap-4">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-white"
-                    style={{ backgroundColor: experience.iconBg }}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold">{experience.title}</h3>
-                    <p className="text-purple-400 mt-1">{experience.company}</p>
-                    <div className="flex justify-between items-center mt-2">
-                      <span className="text-gray-400 text-sm">
-                        {experience.location}
-                      </span>
-                      <span className="text-gray-400 text-sm">
-                        {experience.period}
-                      </span>
-                    </div>
-                    <ul className="mt-4 space-y-2">
-                      {experience.description.map((item, idx) => (
-                        <li
-                          key={idx}
-                          className="text-gray-300 flex items-start"
-                        >
-                          <span className="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+        <div className="max-w-6xl mx-auto">
+          <AnimatedTimeline
+            items={experiences.map((exp) => ({
+              title: exp.title,
+              company: exp.company,
+              period: exp.period,
+              location: exp.location,
+              responsibilities: exp.description,
+              icon: exp.icon,
+            }))}
+          />
         </div>
       </motion.div>
     </div>
