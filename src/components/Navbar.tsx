@@ -6,10 +6,12 @@ import { FiDownload } from "react-icons/fi";
 import { motion } from "framer-motion";
 import ViewCounter from "./ViewCounter";
 import ThemeToggle from "./ThemeToggle";
+import InteractiveResumeViewer from "./InteractiveResumeViewer";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [showResumeViewer, setShowResumeViewer] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -111,18 +113,27 @@ const Navbar = () => {
               />
             </div>
 
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            {/* Theme Toggle */}
+            <div className="hidden md:block">
+              <ThemeToggle />
+            </div>
+
+            <button
+              onClick={() => setShowResumeViewer(true)}
               className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-purple-600 hover:bg-purple-700 transition-all hover:scale-105 text-white text-base font-medium group"
             >
               <FiDownload className="w-4 h-4 group-hover:animate-bounce" />
               <span>Resume</span>
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Interactive Resume Viewer */}
+      <InteractiveResumeViewer
+        isOpen={showResumeViewer}
+        onClose={() => setShowResumeViewer(false)}
+      />
     </motion.nav>
   );
 };

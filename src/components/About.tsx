@@ -58,7 +58,7 @@ const About = () => {
 
         <motion.div
           variants={itemVariants}
-          className="bg-[#1a1a2e] rounded-lg p-6 md:p-8 shadow-xl"
+          className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10 max-w-6xl mx-auto"
         >
           <div className="space-y-6 text-gray-300">
             <p className="text-lg">

@@ -56,7 +56,7 @@ const Education = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-[#1a1a2e] rounded-lg p-6 md:p-8 shadow-xl card-hover backdrop-blur-sm"
+              className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10"
             >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-white flex-shrink-0">

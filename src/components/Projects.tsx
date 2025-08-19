@@ -126,7 +126,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div key={index} variants={itemVariants}>
               <Enhanced3DCard className="h-full">
-                <div className="bg-gradient-to-br from-[#1a1a2e] to-[#16213e] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 backdrop-blur-sm h-full transition-all duration-300 hover:ring-purple-500/30">
+                <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/10 h-full transition-all duration-300 hover:border-purple-500/30">
                   {/* Image or Fallback */}
                   {project.image ? (
                     <div className="relative h-48">
