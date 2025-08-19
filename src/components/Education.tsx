@@ -33,6 +33,14 @@ const Education = () => {
         "Bachelor of Technology (Honours) in Computer Science and Engineering",
       period: "2018 – 2022",
       gpa: "3.86",
+      courses: [
+        "Artificial Intelligence",
+        "Probability and Statistics",
+        "Data Structures and Algorithms",
+        "Software Defined Networking",
+        "Transaction Processing Systems",
+        "Discrete Mathematics",
+      ],
     },
   ];
 
