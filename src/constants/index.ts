@@ -38,6 +38,7 @@ export const personalInfo = {
     github: "https://github.com/Sanyuktatuti",
     kaggle: "https://www.kaggle.com/sanyuktatuti",
     leetcode: "https://leetcode.com/sanyuktatuti",
+    medium: "https://medium.com/@sanyuktatuti",
   },
 };
 

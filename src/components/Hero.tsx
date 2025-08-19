@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
 import { SiKaggle, SiLeetcode } from "react-icons/si";
 import { personalInfo } from "@/constants";
 import MagneticButton from "./MagneticButton";
@@ -55,7 +55,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 break-words leading-tight py-2"
-              style={{ lineHeight: '1.1' }}
+              style={{ lineHeight: "1.1" }}
             >
               {personalInfo.name}
             </motion.h1>
@@ -73,7 +73,7 @@ const Hero = () => {
               "ML/AI Engineer & MS Computer Science @ NYU",
               "Deep Learning Expert",
               "Building the Future with AI",
-              "Transforming Data into Intelligence"
+              "Transforming Data into Intelligence",
             ]}
             className="min-h-[2rem] flex items-center justify-center"
             typingSpeed={80}
@@ -152,6 +152,17 @@ const Hero = () => {
               className="text-2xl hover:text-orange-400 transition-colors p-3 bg-white/5 rounded-full backdrop-blur-sm hover:bg-white/10 flex items-center justify-center w-12 h-12"
             >
               <SiLeetcode />
+            </Link>
+          </MagneticButton>
+
+          <MagneticButton>
+            <Link
+              href={personalInfo.socialLinks.medium}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl hover:text-green-400 transition-colors p-3 bg-white/5 rounded-full backdrop-blur-sm hover:bg-white/10 flex items-center justify-center w-12 h-12"
+            >
+              <FaMedium />
             </Link>
           </MagneticButton>
         </motion.div>
