@@ -43,7 +43,7 @@ const projects = [
     tags: ["Python", "NLP", "Retrieval", "Streamlit", "scikit-learn"],
     links: {
       github: "https://github.com/Sanyuktatuti/Candidate-Recommendation-Engine",
-      demo: "https://github.com/Sanyuktatuti/Candidate-Recommendation-Engine",
+      demo: "https://candidate-recommendation-engine-ks3gdxgzcjfto3624t55v2.streamlit.app/",
     },
   },
   {
@@ -66,7 +66,7 @@ const projects = [
     tags: ["D3.js", "Python", "Bokeh/Panel", "Data Viz"],
     links: {
       github: "https://github.com/Sanyuktatuti/NYU_research_visualization",
-      demo: "https://github.com/Sanyuktatuti/NYU_research_visualization",
+      demo: "https://sanyuktatuti.github.io/NYU_research_visualization/",
     },
   },
 ];
